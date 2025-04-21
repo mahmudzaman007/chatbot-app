@@ -5,12 +5,17 @@ import pickle
 import spacy
 import streamlit as st
 import spacy
+import subprocess
+import importlib
+
+# Ensure the spaCy model is available
 try:
     nlp = spacy.load("en_core_web_sm")
-except:
-    import os
-    os.system("python -m spacy download en_core_web_sm")
+except OSError:
+    subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
+    importlib.invalidate_caches()
     nlp = spacy.load("en_core_web_sm")
+
 
 nlp = spacy.load("en_core_web_sm")
 model, vectorizer, classes = pickle.load(open("chatbot.pkl", "rb"))
