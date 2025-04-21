@@ -1,0 +1,75 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hello",
+        "Hey"
+      ],
+      "responses": [
+        "Hey! How can I help you today?"
+      ]
+    },
+    {
+      "tag": "how_are_you",
+      "patterns": [
+        "How are you?",
+        "How are you doing?",
+        "What's up?"
+      ],
+      "responses": [
+        "I'm just a bot, but I'm doing great! How about you?",
+        "Doing well, thanks for asking!"
+      ]
+    },
+    {
+      "tag": "weather",
+      "patterns": [
+        "What's the weather?",
+        "Tell me the weather",
+        "How is the weather today?"
+      ],
+      "responses": [
+        "It's sunny and 25\u00b0C!",
+        "Looks like rain today. Don't forget your umbrella!"
+      ]
+    },
+    {
+      "tag": "order_pizza",
+      "patterns": [
+        "I want to order a pizza",
+        "Pizza please"
+      ],
+      "responses": [
+        "Great! What size would you like?"
+      ],
+      "context_set": "ordering_pizza"
+    },
+    {
+      "tag": "pizza_size",
+      "patterns": [
+        "Large",
+        "Small",
+        "Medium"
+      ],
+      "responses": [
+        "Awesome. What toppings would you like?"
+      ],
+      "context_filter": "ordering_pizza",
+      "context_set": "pizza_size"
+    },
+    {
+      "tag": "pizza_toppings",
+      "patterns": [
+        "Pepperoni",
+        "Mushrooms",
+        "Extra cheese"
+      ],
+      "responses": [
+        "Got it. Your pizza will be ready soon!"
+      ],
+      "context_filter": "pizza_size"
+    }
+  ]
+}
